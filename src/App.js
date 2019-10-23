@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import './App.scss';
+import {Route, Switch} from "react-router";
+import CitiesListPage from "./containers/CitiesListPage/CitiesListPage";
+import Header from "./components/Header/Header";
+import Favourites from "./containers/Favourites/Favourites";
+import Auth from "./containers/Auth/Auth";
+import {connect} from "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+ class App extends Component{
+  render(){
+
+    let routs = (
+      <Switch>
+        <Route path='/' component={CitiesListPage} exact/>
+        <Route path='/login' component={Auth}/>
+      </Switch>
+    );
+    if(this.props.auth){
+      routs = (
+        <Switch>
+          <Route path='/' component={CitiesListPage} exact/>
+          <Route path='/favourites' component={Favourites}/>
+        </Switch>
+      )
+    }
+
+    return (
+      <div className="App">
+        <Header/>
+        {routs}
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+   return{
+     auth: !!state.auth.token
+   }
+}
+
+export default connect(mapStateToProps)(App);
