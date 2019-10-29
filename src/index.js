@@ -5,7 +5,7 @@ import './index.scss';
 import store from './store'
 import {BrowserRouter} from  'react-router-dom'
 import { Provider } from 'react-redux'
-import App from "./App";
+import App from "./components/App/App";
 
 const app = (
   <Provider store={store}>

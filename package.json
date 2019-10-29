@@ -4,9 +4,13 @@
   "private": true,
   "dependencies": {
     "@babel/runtime": "^7.6.3",
+    "google-maps-react": "^2.0.2",
+    "leaflet": "^1.5.1",
     "node-sass": "^4.12.0",
+    "prop-types": "latest",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-leaflet": "^2.5.0",
     "react-redux": "^7.1.1",
     "react-router": "latest",
     "react-router-dom": "^5.1.2",

@@ -5,6 +5,8 @@ import Tabs from "../../components/Tabs/Tabs";
 import Loader from "../../components/Loader/Loader";
 import CitiesList from "../../components/CitiesList/CitiesList";
 import './CitiesListPage.scss'
+import Maps from "../../components/Maps/Maps";
+
 
 class CitiesListPage extends Component{
 
@@ -22,6 +24,7 @@ class CitiesListPage extends Component{
         <div className="listWrap">
           <div className="wrapper">
             <CitiesList cities={this.props.cities} currentCity={this.props.currentCity}/>
+            <Maps location={this.props.location}/>
           </div>
         </div>
       </div>
@@ -35,6 +38,7 @@ const mapStateToProps = state => {
     cities: state.cities.cities,
     citiesInd: state.cities.citiesInd,
     currentCity: state.cities.currentCity,
+    location: state.cities.location,
     loading: state.cities.loading
   }
 }

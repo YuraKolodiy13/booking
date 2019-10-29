@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import './App.scss';
 import {Route, Switch} from "react-router";
-import CitiesListPage from "./containers/CitiesListPage/CitiesListPage";
-import Header from "./components/Header/Header";
-import Favourites from "./containers/Favourites/Favourites";
-import Auth from "./containers/Auth/Auth";
+
+import CitiesListPage from "../../containers/CitiesListPage/CitiesListPage";
+import Header from "../../components/Header/Header";
+import Favourites from "../../containers/Favourites/Favourites";
+import Auth from "../../containers/Auth/Auth";
 import {connect} from "react-redux";
+import CityPage from "../../containers/CityPage/CityPage";
 
  class App extends Component{
   render(){
@@ -13,6 +15,7 @@ import {connect} from "react-redux";
     let routs = (
       <Switch>
         <Route path='/' component={CitiesListPage} exact/>
+        <Route path='/city/:id' component={CityPage}/>
         <Route path='/login' component={Auth}/>
       </Switch>
     );
@@ -20,6 +23,7 @@ import {connect} from "react-redux";
       routs = (
         <Switch>
           <Route path='/' component={CitiesListPage} exact/>
+          <Route path='/city:id' component={CityPage}/>
           <Route path='/favourites' component={Favourites}/>
         </Switch>
       )
