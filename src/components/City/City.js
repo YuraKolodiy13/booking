@@ -59,7 +59,6 @@ const City = props => {
                 <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
               </Popup>
             </Marker>
-
           </Map>
         </div>
         </Fragment>
